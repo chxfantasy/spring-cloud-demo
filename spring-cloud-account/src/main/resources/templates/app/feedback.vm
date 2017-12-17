@@ -1,0 +1,45 @@
+<script type="text/javascript" src="/share/feedback.js" ></script>
+<style type="text/css">
+    .feed-title {
+        margin: 0.4rem 0 0.2rem 0.2rem;
+        color: #949494;
+        font-size: 0.24rem;
+    }
+    .input-font {
+        color: #5e5958;
+        font-size: 0.26rem;
+        border: 0;
+    }
+    .grey-btn {
+        background-color: #CACACA;
+    }
+    .red-btn {
+        background-color: #ff5050;
+    }
+    .white-block {
+        background-color: white;
+        width: 100%;
+        height:0.3rem;
+    }
+</style>
+<div ng-controller="feedBackController" style="background-color: #f2efef;">
+    <input type="hidden" id="meId" value="$!{meId}">
+    <div class="feed-title">反馈内容</div>
+    <div>
+        <textarea id="content" class="input-font" placeholder="点击填写反馈内容"
+                  style="width: 100%; background-color: #ffffff;height: 3.78rem; padding: 0.4rem 0.2rem;"></textarea>
+    </div>
+    <div class="feed-title">联系方式</div>
+    <div class="white-block"></div>
+    <div>
+        <input id="contact" type="text" class="input-font" placeholder="电话/邮箱/微信号"
+               style="width: 100%;height: 0.4rem;line-height: 0.4rem;padding-left:0.2rem;vertical-align: middle;">
+    </div>
+    <div class="white-block"></div>
+    <div style="text-align: center;">
+        <button ng-class="{true: 'grey-btn', false: 'red-btn'}[isSubmitting]" ng-disabled="isSubmitting" ng-click="submitFeedback()"
+                style="margin-top: 0.8rem;width: 5.4rem;height: 0.9rem;line-height: 0.9rem;border-radius: 0.08rem;color: #ffffff;font-size: 0.3rem;text-align: center;border: 0;">
+            {{btnText}}
+        </button>
+    </div>
+</div>

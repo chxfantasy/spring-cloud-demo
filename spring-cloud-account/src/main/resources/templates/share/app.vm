@@ -1,0 +1,19 @@
+<script type="text/javascript" src="/share/shareApp.js?version=13"></script>
+<script>
+    window.onload = function () {
+        var height = document.documentElement.clientHeight;
+        var thisHeight = angular.element("#appShare").height();
+        if(height > thisHeight)
+            angular.element("#appShare").css("height",height);
+    }
+</script>
+<div ng-controller="appController">
+    <input type="hidden" id="iconPath" value="$!{iconPath}">
+    <div id="appShare" style="text-align:center;background-image: url($!{iconPath}share_bg.jpg);background-size: cover;width: 100%;height: 100%;">
+        <img ng-show="weixinGuide" ng-src="{{guideUrl}}" style="position:fixed;width: 3.56rem;height: 0.6rem;margin: 0.2rem 0.2rem 0 0;float: right;">
+        <div style="clear: both;"></div>
+        <div><img src="$!{iconPath}share_word.png" style="width: 2.88rem;height: 2.28rem;margin-top: 1.7rem;"/></div>
+        <div><img src="$!{iconPath}share_logo.png" style="width: 1.14rem;height: 1.14rem;margin-top: 4.84rem;"/></div>
+        <div><img src="$!{iconPath}share_download.png" style="width: 4rem;height: 0.88rem;margin-top: 0.44rem; margin-bottom: 0.8rem" ng-click="downloadApp()"/></div>
+    </div>
+</div>

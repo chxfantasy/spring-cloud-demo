@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <title>$!{title}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <script type="text/javascript">
+        function setRem(doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        var dpr = win.devicePixelRatio;
+                        if (!clientWidth || !dpr) return;
+                        docEl.style.fontSize = (clientWidth / 750 * 100)+"px";
+//                        docEl.style.fontSize = "30px";
+//                        alert(clientWidth + " " + dpr +" "+ docEl.style.fontSize);
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        }setRem(document, window);
+    </script>
+    <!-- FIXME -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css"/>
+##    <link rel="stylesheet" href="https://apps.bdimg.com/libs/bootstrap-glyphicons/1.0/css/bootstrap-glyphicons.css"/>
+##    <link rel="stylesheet" href="https://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css"/>
+
+    <!--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>-->
+    <!--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.ie8polyfill.min.js"></script>-->
+    <!--<script type="text/javascript" src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.widgets.helper.min.js"></script>-->
+    <!--<link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css">-->
+</head>
+<body>
+    This is a header for all pages
+    <br/><br/><br/>
+    $screen_content
+    <br/><br/><br/>
+    This is a footer for all pages
+</body>
+</html>

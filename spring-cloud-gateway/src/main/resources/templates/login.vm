@@ -1,0 +1,37 @@
+<table style="width: 200px; align-content: center;">
+    <tr><td>
+        <input type="input" placeholder="userId" id="userId" name="userId">
+    </td></tr>
+    <tr><td>
+        <input type="password" placeholder="password" id="password" name="password">
+    </td></tr>
+    <tr><td>
+        <input type="button" value="login" onclick="login()">
+    </td></tr>
+</table>
+
+<script>
+    function login() {
+        $.ajax({
+            type: "POST",
+            // contentType: "application/json",
+            url: "/account/login",
+            dataType: 'json',
+            data: {
+                "userId":$("#userId").val(),
+                "password":$("#password").val()
+            },
+            success: function(result) {
+                if ( result.code != '200' ) {
+                    alert( result.msg );
+                }
+                else {
+                    window.location.href = "/moment/list";    //刷新
+                }
+            },
+            error: function (result) {
+                alert( JSON.stringify(result) );
+            }
+        });
+    }
+</script>

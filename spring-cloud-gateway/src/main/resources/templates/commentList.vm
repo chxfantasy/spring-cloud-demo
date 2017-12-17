@@ -1,0 +1,39 @@
+<input type="hidden" id="$!{momentId}">
+<div>
+    <input type="text" id="addComment" placeholder="add comment"> &nbsp;&nbsp; <input type="button" value="add comment" onclick="addComment()">
+</div>
+
+<div>Comment list</div>
+<table>
+    #foreach($comment in $commentList)
+       <tr><td>
+            $!{comment.content}
+       </td></tr>
+    #end
+</table>
+
+<script>
+    function addComment() {
+        $.ajax({
+            type: "POST",
+            // contentType: "application/json",
+            url: "/comment/add",
+            dataType: 'json',
+            data: {
+                "momentId":$("#momentId").val(),
+                "content":$("#addComment").val()
+            },
+            success: function(result) {
+                if ( result.code != '200' ) {
+                    alert( result.msg );
+                }
+                else {
+                    window.location.href = window.location.href;    //刷新
+                }
+            },
+            error: function (result) {
+                alert( JSON.stringify(result) );
+            }
+        });
+    }
+</script>

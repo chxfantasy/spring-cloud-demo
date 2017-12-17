@@ -1,0 +1,128 @@
+<script type="text/javascript" src="/share/personal.js?v=2"></script>
+
+<div ng-controller="personalController">
+    <input type="hidden" id="iconPath" value="$!{iconPath}">
+    <input type="hidden" id="momentInfoPath" value="$!{momentInfoPath}">
+    <input type="hidden" id="userPicPath" value="$!{userPicPath}">
+    <input type="hidden" id="userId" value="$!{user.userId}">
+    #if("$!user.gender" == "1")
+        #set($ganderImage = "{{iconUrl.boy}}")
+        #set($likeGander = "女生")
+        #set($myGander = "他")
+    #elseif("$!user.gender" == "2")
+        #set($ganderImage = "{{iconUrl.girl}}")
+        #set($likeGander = "男生")
+        #set($myGander = "她")
+    #else
+        #set($ganderImage = "")
+        #set($likeGander = "TA")
+        #set($myGander = "TA")
+    #end
+    <div style="position:relative; padding: 1.4rem 0rem 0rem 0rem;">
+##        <div style="position:relative;z-index:2;overflow:hidden;width: 7.5rem;height:  7.5rem;background-color: #000000">
+##            <video x5-video-player-type='h5' style="position:relative;top:0;left 0;object-fit: cover;width: 100%;height: 100%;" preload="meta" controls src="$!{user.showVideo}"></video>
+####            <div style="position:absolute;z-index:2;top: 0;left: 0;width: 100%;height: 100%;filter:alpha(Opacity=80);-moz-opacity:0.5;opacity: 0.5;" ng-click="playVideo($event)"></div>
+##        </div>
+    <div style="width:100%;height:0.2rem;background-color: #f2efef;"></div>
+    <div style="width:7.5rem;height:7.5rem;background-color: #000000">
+        <video x5-video-player-type='h5' style="width: 100%;height: 100%;background-color: #000000" preload="meta" controls poster="$!{user.headImgUrl}" onplay="playSet(this)" onpause="playSet(this)">
+            <source src="$!{user.showVideo}">
+        </video>
+    </div>
+    </div>
+    <div style="text-align:center;position:relative; background-color: #ffffff;">
+        #if( "$!{user.headImgThumbUrl}"!="" )
+            <img ng-src="$!{user.headImgThumbUrl}" style="position:relative; margin: 0.3rem 0rem 0rem 0rem;width:0.8rem;height:0.8rem;border-radius: 50%;">
+        #else
+            <img ng-src="{{iconUrl.man}}" style="position:relative; margin: 0.3rem 0rem 0rem 0rem;width:0.8rem;height:0.8rem;">
+        #end
+        <div>
+            <div style="width: 0.4rem;height:0.26rem;display:inline-flex"></div>
+            <p style="font-size:0.34rem;color:#5e5958;position:relative;margin: 0.3rem 0rem 0rem 0rem;display:inline-flex">$!{user.nickName}</p>
+            <div style="display:inline-flex;">
+                <img ng-src="$!{ganderImage}" style="position:relative; margin: 0.3rem 0rem 0rem 0.2rem;width:0.2rem;height:0.26rem;">
+            </div>
+        </div>
+        <div style="font-size: 0.2rem;color:#949494;height:0.26rem;margin: 0.2rem 0rem 0rem 0rem;">
+            #if("$!{user.college}" == "")
+                <div>$!{birth}</div>
+            #else
+                <div style="width: 47.5%;float: left;text-align: right">$!{birth}</div>
+                <div style="width: 5%;float: left;text-align: center">|</div>
+                <div style="width: 47.5%;float: right;text-align: left">$!{user.college}</div>
+            #end
+        </div>
+        <div style="font-size: 0.24rem;color: #949494;padding: 0.3rem 0.36rem 0rem 0.36rem;text-align: left">
+            <span style="white-space:pre-wrap;word-wrap:break-word; word-break:normal; ">$!{user.description}</span>
+        </div>
+        #if("$!{user.idealPartnerDescription}" != "")
+            <p style="font-size:0.34rem;color:#5e5958;position:relative;margin: 0.5rem 0rem 0rem 0rem;">喜欢的$!{likeGander}</p>
+            <div style="font-size: 0.24rem;color: #949494;padding: 0.3rem 0.36rem 0rem 0.36rem;text-align: left">
+                <span style="white-space:pre-wrap;word-wrap:break-word; word-break:normal; ">$!{user.idealPartnerDescription}</span>
+            </div>
+        #end
+        <hr style="margin: 0.5rem 0.36rem 0rem 0.36rem;height:1px;border:none;border-top:1px ridge #f2efef;"/>
+        <img ng-src="{{iconUrl.photo}}" style="position:relative; margin: 0.5rem 0rem 0rem 0rem;width:0.8rem;height:0.8rem;">
+        <p style="font-size:0.34rem;color:#5e5958;position:relative;margin: 0.2rem 0rem 0rem 0rem;">$!{myGander}的照片</p>
+        <div style="width: 100%;margin: 0.3rem 0.09rem 0rem 0.09rem">
+            <div ng-if="picList.length>0" ng-repeat="pic in picList">
+                <div ng-click="previewPic(pic.pic)"
+                     style="width:2.22rem;height:2.22rem;border-radius: 0.08rem;margin: 0rem 0.11rem 0.22rem 0.11rem;float: left;background-image: url({{pic.picThumb}}); background-position: center;background-size: cover;">
+                </div>
+            </div>
+            <div ng-if="picList.length == 0">
+                <div style="font-size: 0.24rem;color: #949494;padding: 0.2rem 0.3rem 0.3rem 0.3rem;text-align: center">
+                    <span style="white-space:pre-wrap;word-wrap:break-word; word-break:normal; ">$!{myGander}尚未上传个人图片~</span>
+                </div>
+            </div>
+        </div>
+        <div style="clear: both"></div>
+        <div>
+            <hr style="margin: 0.3rem 0.36rem 0rem 0.36rem;height:1px;border:none;border-top:1px ridge #f2efef;"/>
+            <img ng-src="{{iconUrl.video}}" style="margin: 0.5rem 0rem 0rem 0rem;width:0.8rem;height:0.8rem;">
+            <p style="font-size:0.34rem;color:#5e5958;margin: 0.2rem 0rem 0.1rem 0rem;">$!{myGander}的视频动态</p>
+            <infinite-scroll>
+                <div ng-if="momentList.length>0" ng-repeat="moment in momentList">
+                    <div style="position:relative;border-radius: 0.08rem;margin: 0.2rem 0.2rem 0rem 0.2rem;border:1px solid #f2efef;z-index: 10">
+##                        <div style="position:relative;z-index:2;border-radius:0.08rem 0.08rem 0rem 0rem;overflow:hidden;width: 100%;height: 7.1rem;background-color: #000000">
+##                            <video x5-video-player-type='h5' style="position:relative;border-radius:0.08rem 0.08rem 0rem 0rem;object-fit: cover;width: 100%;height: 100%;" preload="meta" controls ng-src="{{videoUrl(moment.videoPath)}}" ></video>
+####                            <div style="position:absolute;z-index:2;border-radius: 0.08rem;top: 0;left: 0;width: 100%;height: 100%;filter:alpha(Opacity=80);-moz-opacity:0.5;opacity: 0.5;" ng-click="playVideo($event)"></div>
+##                        </div>
+##                        <video x5-video-player-type='h5' style="border-radius:0.08rem 0.08rem 0rem 0rem;width: 100%;height: 7.08rem;background-color: #000000" preload="meta" controls poster="{{videoUrl(moment.previewPic)}}">
+##                            <source ng-src="{{videoUrl(moment.videoPath)}}">
+##                        </video>
+                        <div style="border-radius:0.08rem 0.08rem 0rem 0rem;width: 100%;height: 7.08rem;background-color: #000000">
+                            <video x5-video-player-type='h5' style="border-radius:0.08rem 0.08rem 0rem 0rem;width: 100%;height: 100%;background-color: #000000" preload="meta" controls poster="{{moment.previewPic}}" onplay="listPlaySet(this)">
+                                <source ng-src="{{videoUrl(moment.videoPath)}}">
+                            </video>
+                        </div>
+                        <div style="margin: 0.3rem 0rem 0rem 0rem;vertical-align: middle;">
+                            <p style="line-height:0.3rem;margin: 0rem 0rem 0rem 0.3rem;font-size: 0.3rem;color: #5e5958;float: left;">$!{user.nickName}</p>
+                            <img ng-src="$!{ganderImage}" style="margin: 0rem 0rem 0rem 0.14rem;width:0.2rem;height:0.3rem;float: left;">
+                            <p style="line-height:0.3rem;margin: 0rem 0rem 0rem 0.3rem;font-size: 0.2rem;color: #959595;float: left;">$!{birth}</p>
+                        </div>
+                        <div style="clear: both"></div>
+                        <div style="font-size: 0.24rem;color: #949494;padding: 0.2rem 0.3rem 0.3rem 0.3rem;text-align: left">
+                            <span style="white-space:pre-wrap;word-wrap:break-word; word-break:normal; ">{{moment.content}}</span>
+                        </div>
+                        <div style="clear: both"></div>
+                        <div style="margin: 0rem 0rem 0.52rem 0rem;vertical-align: middle;">
+                            <p style="line-height:0.22rem;margin: 0rem 0rem 0rem 0.3rem;font-size: 0.19rem;color: #b7b7b7;float: left;">{{moment.gmtCreated | dateFiler}}</p>
+                            <p style="line-height:0.22rem;margin: 0rem 0.3rem 0rem 0rem;font-size: 0.19rem;color: #b7b7b7;float: right;">{{moment.commentNum}}</p>
+                            <a onclick="showFooter()"><img ng-src="{{iconUrl.comments}}" style="margin: 0rem 0.14rem 0rem 0rem;width:0.24rem;height:0.22rem;float: right;"></a>
+                            <p style="line-height:0.22rem;margin: 0rem 0.3rem 0rem 0rem;font-size: 0.19rem;color: #b7b7b7;float: right;">{{moment.starNum}}</p>
+                            <a onclick="showFooter()"><img ng-src="{{iconUrl.like}}" style="margin: 0rem 0.14rem 0rem 0rem;width:0.24rem;height:0.22rem;float: right;"></a>
+                        </div>
+                        <div style="clear: both"></div>
+                    </div>
+                </div>
+            </infinite-scroll>
+            <div ng-if="momentList.length == 0">
+            <div style="font-size: 0.24rem;color: #949494;padding: 0.2rem 0.3rem 0.3rem 0.3rem;text-align: center">
+                <span style="white-space:pre-wrap;word-wrap:break-word; word-break:normal; ">$!{myGander}尚未上传视频~</span>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div style="width:100%;height:0.5rem;background-color: #ffffff;"></div>
+</div>

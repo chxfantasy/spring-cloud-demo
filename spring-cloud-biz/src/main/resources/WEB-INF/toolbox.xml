@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ============================================================= @(#) toolbox.xml
+    Copyright (c) 2016, Project, All Rights Reserved. ============================================================= -->
+
+<toolbox>
+
+    <!-- [ DateTool ] @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/generic/DateTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/DateTool.html
+        (en) @since VelocityTools 1.0 -->
+    <tool>
+        <key>DateTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.DateTool</class>
+    </tool>
+
+    <!-- [ MathTool ] @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/generic/MathTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/generic/MathTool.html (en)
+        @since VelocityTools 1.0 -->
+    <tool>
+        <key>MathTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.MathTool</class>
+    </tool>
+
+    <!-- [ NumberTool ] @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/NumberTool.html
+        (en) @since VelocityTools 1.2 -->
+    <tool>
+        <key>NumberTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.NumberTool</class>
+    </tool>
+
+    <!-- [ RenderTool ] @see http://velocity.apache.org/tools/devel/generic/RenderTool.html
+        (en) @since VelocityTools 1.0 <tool> <key>render</key> <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.RenderTool</class> </tool> -->
+
+    <!-- [ EscapeTool ] @see http://velocity.apache.org/tools/devel/generic/EscapeTool.html
+        (en) @since VelocityTools 1.2 -->
+    <tool>
+        <key>EscapeTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.EscapeTool</class>
+    </tool>
+
+    <!-- [ ResourceTool ] @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/ResourceTool.html
+        (en) @since Velocity 1.3 <tool> <key>text</key> <class>org.apache.velocity.tools.generic.ResourceTool</class>
+        <parameter name="bundles" value="resources,prj.hoboken.patrasche.resources.PatrascheResources"
+        /> <parameter name="locale" value="ja_JP" /> </tool> -->
+
+    <!-- [ AlternatorTool ] @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/AlternatorTool.html
+        (en) @since VelocityTools 1.2 -->
+    <tool>
+        <key>AlternatorTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.AlternatorTool</class>
+    </tool>
+
+    <!-- [ ValueParser ] @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/ValueParser.html
+        (en) @since VelocityTools 1.2 -->
+    <tool>
+        <key>ValueParser</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.ValueParser</class>
+    </tool>
+
+    <!-- [ ListTool ] @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/ListTool.html
+        (en) @since VelocityTools 1.2 -->
+    <tool>
+        <key>ListTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.ListTool</class>
+    </tool>
+
+    <!-- [ SortTool ] @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/SortTool.html
+        (en) @since VelocityTools 1.2 -->
+    <tool>
+        <key>SortTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.SortTool</class>
+    </tool>
+
+    <!-- [ IteratorTool ] @see http://velocity.apache.org/tools/devel/javadoc/org/apache/velocity/tools/generic/IteratorTool.html
+        (en) @since VelocityTools 1.0 -->
+    <tool>
+        <key>IteratorTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.generic.IteratorTool</class>
+    </tool>
+
+    <!-- ============================================================ [ TOOL
+        FOR STRUTS TAGLIB ] ============================================================ -->
+    <!-- [ ActionMessagesTool ] @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/struts/ActionMessagesTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/struts/ActionMessagesTool.html
+        (en) @since VelocityTools 1.1 -->
+    <tool>
+        <key>ActionMessagesTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.struts.ActionMessagesTool</class>
+    </tool>
+
+    <!-- [ ErrorsTool ] @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/struts/ErrorsTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/struts/ErrorsTool.html (en)
+        @since VelocityTools 1.0 -->
+    <tool>
+        <key>ErrorsTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.struts.ErrorsTool</class>
+    </tool>
+
+    <!-- [ FormTool ] @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/struts/FormTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/struts/FormTool.html (en)
+        @since VelocityTools 1.0 -->
+    <tool>
+        <key>FormTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.struts.FormTool</class>
+    </tool>
+
+    <!-- [ MessageTool ] @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/struts/MessageTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/struts/MessageTool.html
+        (en) @since VelocityTools 1.0 -->
+    <tool>
+        <key>MessageTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.struts.MessageTool</class>
+    </tool>
+
+    <!-- [ StrutsLinkTool ] LinkTool @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/struts/StrutsLinkTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/struts/StrutsLinkTool.html
+        (en) @since VelocityTools 1.0 -->
+    <tool>
+        <key>StrutsLinkTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.struts.StrutsLinkTool</class>
+    </tool>
+
+    <!-- [ SecureLinkTool ] LinkTool @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/struts/SecureLinkTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/struts/SecureLinkTool.html
+        (en) @since VelocityTools 1.1 -->
+    <tool>
+        <key>SecureLinkTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.struts.SecureLinkTool</class>
+    </tool>
+
+    <!-- [ TilesTool ] Tiles @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/struts/TilesTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/struts/TilesTool.html (en)
+        @since VelocityTools 1.1 -->
+    <tool>
+        <key>TilesTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.struts.TilesTool</class>
+    </tool>
+
+    <!-- [ ValidatorTool ] Validator @see http://www.jajakarta.org/velocity/tools/velocity-tools-1.1/docs-ja/struts/ValidatorTool.html
+        (ja) @see http://velocity.apache.org/tools/devel/struts/ValidatorTool.html
+        (en) @since VelocityTools 1.1 -->
+    <tool>
+        <key>ValidatorTool</key>
+        <scope>request</scope>
+        <class>org.apache.velocity.tools.struts.ValidatorTool</class>
+    </tool>
+</toolbox>

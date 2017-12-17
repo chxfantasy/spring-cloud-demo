@@ -1,0 +1,37 @@
+<div>
+    <input type="text" id="addMoment" placeholder="add moment"> &nbsp;&nbsp; <input type="button" value="add moment" onclick="addMoment()">
+</div>
+
+<div>Moment list of the first page</div>
+<table>
+    #foreach($moment in $momentList)
+       <tr><td>
+            $!{moment.content} &nbsp;&nbsp; <a href="/comment/$!{moment.id}/list">momentList</a>
+       </td></tr>
+    #end
+</table>
+
+<script>
+    function addMoment() {
+        $.ajax({
+            type: "POST",
+            // contentType: "application/json",
+            url: "/moment/add",
+            dataType: 'json',
+            data: {
+                "content":$("#addMoment").val()
+            },
+            success: function(result) {
+                if ( result.code != '200' ) {
+                    alert( result.msg );
+                }
+                else {
+                    window.location.href = window.location.href;    //刷新
+                }
+            },
+            error: function (result) {
+                alert( JSON.stringify(result) );
+            }
+        });
+    }
+</script>

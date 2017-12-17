@@ -1,0 +1,10 @@
+<div ng-controller="errorController">
+    <input type="hidden" id="iconPath" value="http://bixin-beijing.oss-cn-beijing.aliyuncs.com/donot-delete/appH5Icon/">
+    <div style="margin-top: 2.9rem;text-align: center;">
+        <img src="http://bixin-beijing.oss-cn-beijing.aliyuncs.com/donot-delete/appH5Icon/picture_no_internet@2x.png" alt="" style="width: 2.9rem;height: 2.9rem;">
+    </div>
+    <div style="margin-top: 0.64rem;color: #b7b7b7;font-size: 0.3rem;text-align: center;">
+        啊哦~页面好像被外星人劫走了
+    </div>
+</div>
+<script type="text/javascript" src="/share/error.js"></script>

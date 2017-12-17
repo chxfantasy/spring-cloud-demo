@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+spring.cloud.demo.cache.CacheServiceAutoConfig,\
+spring.cloud.demo.locale.LocaleAutoConfig,\
+spring.cloud.demo.Bean.SpringBeanAutoConfig,\
+spring.cloud.demo.GlobalBean

@@ -1,0 +1,56 @@
+<script type="text/javascript" src="/share/tipOff.js" ></script>
+<style type="text/css">
+    .item-unselected{
+        height: 0.6rem;
+        line-height: 0.6rem;
+        width: 2rem;
+        border-radius: 0.3rem;
+        background-color: transparent;
+        color: #949494;
+        font-size: 0.28rem;
+        border: 1px solid #b7b7b7;
+        text-align: center;
+    }
+    .item-selected{
+        height: 0.6rem;
+        line-height: 0.6rem;
+        width: 2rem;
+        border-radius: 0.3rem;
+        background-color: #ff5050;
+        color: #ffffff;
+        font-size: 0.28rem;
+        text-align: center;
+    }
+    .input-font {
+        color: #5e5958;
+        font-size: 0.26rem;
+        border: 0;
+    }
+
+    .grey-btn {
+        background-color: #CACACA;
+    }
+    .red-btn {
+        background-color: #ff5050;
+    }
+</style>
+<div ng-controller="tipOffController" style="background-color: #f2efef;">
+    <input type="hidden" id="meId" value="$!{meId}">
+    <input type="hidden" id="targetUserId" value="$!{targetUserId}">
+    <input type="hidden" id="momentId" value="$!{momentId}">
+    <div style="margin: 0.4rem 0.2rem;display: flex;justify-content: space-between;">
+        <div ng-class="{true: 'item-selected', false: 'item-unselected'}[tipType==1]" ng-click="selectTipType(1)">色情消息</div>
+        <div ng-class="{true: 'item-selected', false: 'item-unselected'}[tipType==2]" ng-click="selectTipType(2)">广告消息</div>
+        <div ng-class="{true: 'item-selected', false: 'item-unselected'}[tipType==3]" ng-click="selectTipType(3)">暴力消息</div>
+    </div>
+    <div style="margin-left: 0.2rem;" ng-class="{true: 'item-selected', false: 'item-unselected'}[tipType==4]" ng-click="selectTipType(4)">其他</div>
+    <div style="margin-top: 0.4rem;">
+        <textarea id="comment" class="input-font" placeholder="点击填写更多举报内容"
+                  style="width: 100%; background-color: #ffffff;height: 3.78rem; padding: 0.4rem 0.2rem;"></textarea>
+    </div>
+    <div style="text-align: center;">
+        <button ng-class="{true: 'grey-btn', false: 'red-btn'}[isSubmitting]" ng-disabled="isSubmitting" ng-click="submitTipOff()" style="margin-top: 0.8rem;width: 5.4rem;height: 0.9rem;line-height: 0.9rem;border-radius: 0.08rem;color: #ffffff;font-size: 0.3rem;text-align: center;border: 0;">
+            {{btnText}}
+        </button>
+    </div>
+</div>

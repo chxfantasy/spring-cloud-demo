@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{35}-%line [%thread]:%msg%n" />
+    <property name="LOG_FILE" value="logs/account.log"/>
+    <property name="ERROR_FILE" value="logs/account.err"/>
+
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator class="ch.qos.logback.classic.boolex.GEventEvaluator">
+                <expression>
+                    <![CDATA[
+                    e.level.toInt()>=DEBUG.toInt() && e.level.toInt()<WARN.toInt()
+                    ]]>
+                </expression>
+            </evaluator>
+            <OnMismatch>DENY</OnMismatch>
+            <OnMatch>NEUTRAL</OnMatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}</fileNamePattern>
+            <!-- keep 30 days' worth of history capped at 3GB total size -->
+            <!--<maxHistory>30</maxHistory>-->
+            <!--<totalSizeCap>3GB</totalSizeCap>-->
+        </rollingPolicy>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${ERROR_FILE}</file>
+        <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+            <evaluator class="ch.qos.logback.classic.boolex.GEventEvaluator">
+                <expression>
+                    <![CDATA[
+                    e.level.toInt()>=WARN.toInt() && e.level.toInt()<=ERROR.toInt()
+                    ]]>
+                </expression>
+            </evaluator>
+            <OnMismatch>DENY</OnMismatch>
+            <OnMatch>NEUTRAL</OnMatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${ERROR_FILE}.%d{yyyy-MM-dd}</fileNamePattern>
+            <!-- keep 30 days' worth of history capped at 3GB total size -->
+            <!--<maxHistory>30</maxHistory>-->
+            <!--<totalSizeCap>3GB</totalSizeCap>-->
+        </rollingPolicy>
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver" level="WARN">
+        <appender-ref ref="FILE_ERROR"/>
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="FILE_INFO"/>
+        <appender-ref ref="FILE_ERROR"/>
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
