@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import spring.cloud.biz.dataaccess.dataobject.MomentDo;
 import spring.cloud.biz.dataaccess.mapper.MomentDoMapper;
 import spring.cloud.biz.service.MomentService;
@@ -31,7 +33,9 @@ public class MomentServiceImpl implements MomentService {
 
     @Autowired private MomentDoMapper momentDoMapper;
 
+    /*  by default, @Transactional uses the primary txManager */
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class, Throwable.class})
     public ListResultModel<MomentModel> listFirstPageMoment(Integer page, Integer pageSize) {
         PageHelper.startPage(page, pageSize, "id desc");
         List<MomentDo> momentDoList = this.momentDoMapper.listMoment();

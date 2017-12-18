@@ -5,6 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import spring.cloud.biz.config.datasourceConfig.DataSourceType;
 import spring.cloud.biz.config.datasourceConfig.DynamicDataSourceContextHolder;
 import spring.cloud.biz.dataaccess.dataobject.CommentDo;
@@ -35,6 +37,7 @@ public class CommentServiceImpl implements CommentService {
     @Autowired private MomentDoMapper momentDoMapper;
 
     @Override
+    @Transactional(value = "commentTxManager", propagation = Propagation.REQUIRED, rollbackFor = {Exception.class, Throwable.class})
     public ListResultModel<CommentModel> listCommentsByMomentId(Long momentId) {
         ListResultModel<CommentModel> resultModel = ListResultModel.createSuccess();
         if ( null == momentId ) {

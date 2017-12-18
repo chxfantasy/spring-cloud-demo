@@ -15,12 +15,12 @@ public class CommentSourceConfiguration {
 	
 	@Bean
 	@ConfigurationProperties(prefix="spring.datasource.comment")
-	public DataSource appDataSource() {
+	public DataSource commentDataSource() {
 	    return DataSourceBuilder.create().type(DruidDataSource.class).build();
 	}
 	
 	@Bean
-	public DataSourceTransactionManager appTxManager( @Qualifier("commentSource") DataSource appDataSource ) {
+	public DataSourceTransactionManager commentTxManager( @Qualifier("commentDataSource") DataSource appDataSource ) {
 		return new DataSourceTransactionManager(appDataSource);
 	}
 	
