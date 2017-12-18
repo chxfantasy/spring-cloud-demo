@@ -1,11 +1,15 @@
 package spring.cloud.client.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Harry on 16/12/2017.
  */
-public class CommentModel {
+public class CommentModel implements Serializable {
+
+    private static final long serialVersionUID = 838968462413447168L;
+
     private Long id;
 
     private Long momentId;

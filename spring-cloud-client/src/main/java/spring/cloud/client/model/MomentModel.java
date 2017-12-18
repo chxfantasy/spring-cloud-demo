@@ -1,11 +1,14 @@
 package spring.cloud.client.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Harry on 16/12/2017.
  */
-public class MomentModel {
+public class MomentModel implements Serializable {
+
+    private static final long serialVersionUID = -4265065943301487413L;
 
     private Long id;
 

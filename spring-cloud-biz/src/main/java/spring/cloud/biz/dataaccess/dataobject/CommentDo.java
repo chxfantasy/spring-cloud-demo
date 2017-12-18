@@ -1,51 +1,14 @@
 package spring.cloud.biz.dataaccess.dataobject;
 
-import java.util.Date;
+import spring.cloud.client.model.CommentModel;
 
-public class CommentDo {
-    private Long id;
+import java.io.Serializable;
 
-    private Long momentId;
+public class CommentDo extends CommentModel {
 
-    private String content;
-
-    private Date gmtCreated;
-
-    private Date gmtModified;
+    private static final long serialVersionUID = 4716466311760136418L;
 
     private Boolean isDeleted;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getMomentId() {
-        return momentId;
-    }
-
-    public void setMomentId(Long momentId) {
-        this.momentId = momentId;
-    }
-
-    public Date getGmtCreated() {
-        return gmtCreated;
-    }
-
-    public void setGmtCreated(Date gmtCreated) {
-        this.gmtCreated = gmtCreated;
-    }
-
-    public Date getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
-    }
 
     public Boolean getIsDeleted() {
         return isDeleted;
@@ -55,11 +18,4 @@ public class CommentDo {
         this.isDeleted = isDeleted;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
-    }
 }

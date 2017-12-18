@@ -2,12 +2,14 @@ package spring.cloud.account.dataaccess.dataobject;
 
 import spring.cloud.client.model.AccountModel;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class AccountDo extends AccountModel implements Serializable {
+/**
+ * AccountModel should implements Serializable, otherwise userId and userName will not be serialized
+ */
+public class AccountDo extends AccountModel {
 
-    private static final long serialVersionUID = 12345;
+    private static final long serialVersionUID = 8400094943305435805L;
 
     private String password;
 
