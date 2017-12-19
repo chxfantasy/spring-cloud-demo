@@ -107,6 +107,8 @@ CREATE TABLE `comment` (
 ![](docs/deployment.png)
 
 
+中文介绍： http://www.jianshu.com/p/c14c47243994
+
 Any questions, please send to chxfantasy@gmail.com
 
 HomePage: http://www.jianshu.com/u/c031bded621b
