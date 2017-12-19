@@ -1,4 +1,4 @@
-#Introduction
+# Introduction
 
 1. This project is a demo project for spring cloud microservice structure, using spring-boot, including: 
 	- spring cloud eureka
@@ -16,7 +16,8 @@
 
 2. This project has a login page. After login, you can see the first page of momentList, add new moments to the list, see the comments of each moment, and add new comments to the comment list. 
 
-#Run
+# Run
+
 1. first of all, you should get a redis started, and a mysql started. Then, the sql for creating databases and dbs is as below:
 
 ```
@@ -86,7 +87,7 @@ CREATE TABLE `comment` (
 
 # Code explain
 1. The dependency of this project is shown below :
-
+![](docs/project-structure.png)
 2. spring-cloud-parent is just a empty maven project, contains the common poms for other project, so spring-cloud-eureka, spring-cloud-biz, spring-cloud-account and spring-cloud-gateway all inherate from spring-cloud-parent
 3. spring-cloud-starter is a demo starter, it cointains the common beans, common bean configurations for spring-cloud-biz, spring-cloud-account and spring-cloud-gateway.
 4. spring-cloud-client is a common depency for all, contains some util classes and java Models responding to the db table.
@@ -98,7 +99,7 @@ CREATE TABLE `comment` (
 
 # Deploy to the production env
 1. These projects should be deployed like this:
-
+![](docs/deployment.png)
 
 
 Any questions, please send to chxfantasy@gmail.com
