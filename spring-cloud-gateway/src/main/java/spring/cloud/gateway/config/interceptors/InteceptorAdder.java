@@ -51,7 +51,8 @@ public class InteceptorAdder extends WebMvcConfigurerAdapter {
 						"/login", "/health",
 						"/swagger-resources/**",    //for swagger
 						"/v2/api-docs",         //for swagger
-						"/index","/account/login"
+						"/index", "/traceHealth",
+						"/account/login"
 
 				);
 	}

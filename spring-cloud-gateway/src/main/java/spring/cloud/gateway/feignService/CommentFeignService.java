@@ -18,7 +18,7 @@ public interface CommentFeignService {
 
     @PostMapping("/{momentId}/add")
     ResultModel<CommentModel> addComment(
-            @PathVariable("moment") Long momentId,
+            @PathVariable("momentId") Long momentId,
             @RequestParam("content") String content);
 
 }

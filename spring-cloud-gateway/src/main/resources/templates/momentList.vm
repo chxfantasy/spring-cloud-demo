@@ -6,7 +6,7 @@
 <table>
     #foreach($moment in $momentList)
        <tr><td>
-            $!{moment.content} &nbsp;&nbsp; <a href="/comment/$!{moment.id}/list">momentList</a>
+            $!{moment.content} &nbsp;&nbsp; <a href="/comment/$!{moment.id}/list">commentList</a>
        </td></tr>
     #end
 </table>
@@ -16,7 +16,7 @@
         $.ajax({
             type: "POST",
             // contentType: "application/json",
-            url: "/moment/add",
+            url: "/moment",
             dataType: 'json',
             data: {
                 "content":$("#addMoment").val()

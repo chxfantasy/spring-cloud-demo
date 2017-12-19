@@ -72,6 +72,7 @@ public class AccountServiceImpl implements AccountService {
 
         Cookie cookie = new Cookie(GlobalConstants.LOGIN_TOKEN_KEY, ticket);
         cookie.setMaxAge( GlobalConstants.LOGIN_TOKEN_EXPIRE );
+        cookie.setPath("/");
         response.addCookie( cookie );
 
         return ResultModel.createSuccess();

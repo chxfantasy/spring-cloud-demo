@@ -14,7 +14,6 @@ import spring.cloud.gateway.service.AccountService;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@RequestMapping("")
 @Api(description = "用户信息相关接口")
 public class AccountController {
 

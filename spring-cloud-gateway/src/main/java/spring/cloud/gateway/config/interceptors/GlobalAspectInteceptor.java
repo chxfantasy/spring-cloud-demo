@@ -1,5 +1,6 @@
 package spring.cloud.gateway.config.interceptors;
 
+import com.alibaba.fastjson.JSON;
 import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,10 +16,13 @@ import java.util.UUID;
 
 public class GlobalAspectInteceptor implements HandlerInterceptor{
 	private static final Logger LOGGER = LoggerFactory.getLogger( GlobalAspectInteceptor.class );
-	
+
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+
+		LOGGER.info("request -> path:{}, params:{}", request.getRequestURI(), JSON.toJSONString( request.getParameterMap() ) );
+
 		//traceId
 		String traceIdFromRequest = request.getHeader(StarterConstants.TRACE_ID_KEY);
 		if ( Strings.isNullOrEmpty(traceIdFromRequest) ) {

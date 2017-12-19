@@ -1,4 +1,4 @@
-<input type="hidden" id="$!{momentId}">
+<input type="hidden" value="$!{momentId}" id="momentId">
 <div>
     <input type="text" id="addComment" placeholder="add comment"> &nbsp;&nbsp; <input type="button" value="add comment" onclick="addComment()">
 </div>
@@ -17,7 +17,7 @@
         $.ajax({
             type: "POST",
             // contentType: "application/json",
-            url: "/comment/add",
+            url: "/comment/"+$("#momentId").val()+"/add",
             dataType: 'json',
             data: {
                 "momentId":$("#momentId").val(),
