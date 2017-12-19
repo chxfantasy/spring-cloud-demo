@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{35}-%line [%thread]:%msg%n" />
-    <property name="LOG_FILE" value="logs/account.log"/>
-    <property name="ERROR_FILE" value="logs/account.err"/>
+    <property name="LOG_FILE" value="logs/biz.log"/>
+    <property name="ERROR_FILE" value="logs/biz.err"/>
 
     <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FILE}</file>

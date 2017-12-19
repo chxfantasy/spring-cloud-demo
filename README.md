@@ -12,7 +12,12 @@
 	- Global traceId
 	- velocity
 	- mybatis, pageHelper (for paging), druid (alibaba druid, for mysql dataSource and connection pool)
-	- redis
+	- redis (jdk serialization)
+	- slf4j & logback
+	- Internationality
+	- Global Exception catch
+	- Task executor thread pool
+	- HealthCheck, globalHealthCheck
 
 2. This project has a login page. After login, you can see the first page of momentList, add new moments to the list, see the comments of each moment, and add new comments to the comment list. 
 
