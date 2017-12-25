@@ -1,4 +1,4 @@
-package com.bixin.app.eureka.server.controller;
+package spring.cloud.eureka.server.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

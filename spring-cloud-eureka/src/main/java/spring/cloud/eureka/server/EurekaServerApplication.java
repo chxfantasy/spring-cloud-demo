@@ -1,4 +1,4 @@
-package com.bixin.app.eureka.server;
+package spring.cloud.eureka.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

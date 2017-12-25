@@ -1,4 +1,4 @@
-package com.bixin.app.eureka.server;
+package spring.cloud.eureka.server;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

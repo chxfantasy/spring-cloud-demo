@@ -29,7 +29,7 @@ public class HealthCheckController {
     @Autowired private AccountHealthCheckService accountHealthCheckService;
     @Autowired private BizHealthCheckService bizHealthCheckService;
 
-    private static final String HEALTH_KEY = "bixinApp#account#healthCheck#key";
+    private static final String HEALTH_KEY = "spring.cloud.gateway#healthCheck#key";
 
     private static final int CACHE_TIME = 500;  //ms
     private static final int db_TIME = 2000;  //ms
@@ -74,14 +74,14 @@ public class HealthCheckController {
 
         String imHealth = this.accountHealthCheckService.health();
         if ( FAIL.equalsIgnoreCase( imHealth ) ) {
-            LOGGER.error("imService.health fail");
+            LOGGER.error("accountHealthCheckService.health fail");
             response.setStatus(500);
             return FAIL;
         }
 
         String momentHealth = this.bizHealthCheckService.health();
         if ( FAIL.equalsIgnoreCase(  momentHealth ) ) {
-            LOGGER.error("momentHealthService.health fail");
+            LOGGER.error("bizHealthCheckService.health fail");
             response.setStatus(500);
             return FAIL;
         }

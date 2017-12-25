@@ -1,4 +1,4 @@
-package com.bixin.app.eureka.server.controller;
+package spring.cloud.eureka.server.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

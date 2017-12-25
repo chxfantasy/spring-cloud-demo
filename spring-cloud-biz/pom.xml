@@ -5,8 +5,8 @@
 
 	<!-- created by harry, https://github.com/chxfantasy/spring-cloud-demo -->
 
-	<groupId>com.tech.bixin</groupId>
-	<artifactId>bixin.app.biz</artifactId>
+	<groupId>com.tech.harry</groupId>
+	<artifactId>spring.cloud.biz</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -14,8 +14,8 @@
 	<description>spring cloud biz, by Spring Boot</description>
 
 	<parent>
-		<groupId>com.tech.bixin</groupId>
-		<artifactId>spring.bixin.parent</artifactId>
+		<groupId>com.tech.harry</groupId>
+		<artifactId>spring.cloud.parent</artifactId>
 		<version>1.0.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
@@ -42,6 +42,6 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>bixin.app.account</finalName>
+		<finalName>spring.cloud.bix</finalName>
 	</build>
 </project>
