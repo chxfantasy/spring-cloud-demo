@@ -24,7 +24,7 @@ public class CacheServiceAutoConfig {
         //默认使用JDK的序列化
         template.setValueSerializer( new JdkSerializationRedisSerializer());
 
-        template.setEnableTransactionSupport(true);
+        // template.setEnableTransactionSupport(true);
         template.afterPropertiesSet();
 
         return template;
@@ -46,8 +46,8 @@ public class CacheServiceAutoConfig {
     @ConditionalOnBean({RedisConnectionFactory.class})
     public CacheService cacheService(@Autowired StringRedisTemplate stringRedisTemplate,
                                          @Autowired RedisTemplate<String, Object> redisTemplate){
-        stringRedisTemplate.setEnableTransactionSupport(true);
-        redisTemplate.setEnableTransactionSupport(true);
+        // stringRedisTemplate.setEnableTransactionSupport(true);
+        // redisTemplate.setEnableTransactionSupport(true);
         return new CacheServiceImpl(redisTemplate, stringRedisTemplate);
     }
 
