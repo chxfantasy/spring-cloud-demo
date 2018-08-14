@@ -65,6 +65,8 @@
         <appender-ref ref="STDOUT" />
     </logger>
 
+    <logger name="spring.cloud.biz.dataaccess.mapper" level="ERROR" />
+
     <root level="INFO">
         <appender-ref ref="FILE_INFO"/>
         <appender-ref ref="FILE_ERROR"/>
